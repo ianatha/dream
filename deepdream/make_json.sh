@@ -46,9 +46,5 @@ cd `dirname $0`
 
 
 #Start the infinite for loop which will keep regenerating image.json
-while [ true ];
-do
-    echo "Making images.json"
-    make_json;
-    sleep ${SLEEP_TIME};
-done
+echo "Making images.json"
+make_json;

@@ -1,4 +1,3 @@
-# imports and basic notebook setup
 from cStringIO import StringIO
 import numpy as np
 import scipy.ndimage as nd
@@ -107,20 +106,6 @@ if width > maxwidth:
     img = img.resize((maxwidth,hsize), PIL.Image.ANTIALIAS)
 
 img = np.float32(img)
-
 frame = img
-#frame_i = 0
-
 frame = deepdream(net, frame, end=json_data['layer'])
-#frame = deepdream(net, img, end='inception_3b/5x5_reduce')
-#frame = deepdream(net, img, end='conv2/3x3')
-
 PIL.Image.fromarray(np.uint8(frame)).save("output.jpg")
-
-#h, w = frame.shape[:2]
-#s = 0.05 # scale coefficient
-#for i in xrange(100):
-#    frame = deepdream(net, frame)
-#    PIL.Image.fromarray(np.uint8(frame)).save("output/%04d.jpg"%frame_i)
-#    frame = nd.affine_transform(frame, [1-s,1-s,1], [h*s/2,w*s/2,0], order=1)
-#    frame_i += 1

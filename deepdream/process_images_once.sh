@@ -1,7 +1,4 @@
-#!/bin/bash
-# Simple script to process all of the images inside the inputs/ folder
-# We will be running this script inside the visionai/clouddream Docker image
-# Copyright vision.ai, 2015
+#!/bin/bash -x
 
 f=$1
     cd /opt/deepdream
@@ -10,6 +7,9 @@ f=$1
 	echo "Deepdream" ${f}
 	chmod gou+r inputs/${f}
 	cp inputs/${f} input.jpg
+	pwd
+	date
+	which python
 	python deepdream.py
 	ERROR_CODE=$?
 	echo "Error Code is" ${ERROR_CODE}

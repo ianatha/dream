@@ -8,7 +8,7 @@ do
     cd /opt/deepdream
     touch outputs/$f-log.txt
     ./make_json.sh
-    ./process_images_once.sh $f 2>&1 >> outputs/$f-log.txt
+    ./process_images_once.sh $f >> outputs/$f-log.txt 2>&1
     ./make_json.sh
     sleep 1
 done
